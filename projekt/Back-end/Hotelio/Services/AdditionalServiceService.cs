@@ -16,6 +16,7 @@ namespace Hotelio.Services
         {
             return crudContext.AdditionalServices
                 .Include(x => x.Room)
+                .Include(x => x.Room.Hotel)
                 .SingleOrDefault(x => x.Id == id);
         }
 
@@ -23,6 +24,7 @@ namespace Hotelio.Services
         {
             return crudContext.AdditionalServices
                 .Include(x => x.Room)
+                .Include(x => x.Room.Hotel)
                 .ToList();
         }
         
