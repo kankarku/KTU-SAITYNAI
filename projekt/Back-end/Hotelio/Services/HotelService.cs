@@ -1,5 +1,6 @@
 ﻿using Hotelio.Context;
 using Hotelio.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Hotelio.Services
 {
@@ -13,12 +14,14 @@ namespace Hotelio.Services
 
         public Hotel GetHotel(Guid id)
         {
-            return crudContext.Hotels.SingleOrDefault(x => x.Id == id);
+            return crudContext.Hotels
+                .SingleOrDefault(x => x.Id == id);
         }
 
         public List<Hotel> GetHotels()
         {
-            return crudContext.Hotels.ToList();
+            return crudContext.Hotels
+                .ToList();
         }
 
         public Hotel AddHotel(Hotel hotel)

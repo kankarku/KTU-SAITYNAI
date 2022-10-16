@@ -1,12 +1,13 @@
 ﻿using Hotelio.Context;
 using Hotelio.Data;
+using Hotelio.Data.Routes;
 using Hotelio.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Hotelio.Controllers
 {
-    [Route("api/[controller]")]
+    //[Route("api/[controller]")]
     [ApiController]
     public class HotelController : ControllerBase
     {
@@ -18,14 +19,14 @@ namespace Hotelio.Controllers
         }
 
         [HttpGet]
-        [Route("getHotels")]
+        [Route(Routes.GetHotels)]
         public async Task<ActionResult<Hotel>> GetHotels()
         {
             return Ok(hotelService.GetHotels());
         }
 
         [HttpGet]
-        [Route("getHotel/{id}")]
+        [Route(Routes.GetHotel)]
         public async Task<ActionResult<Hotel>> GetHotel(Guid id)
         {
             var hotel = hotelService.GetHotel(id);
@@ -38,7 +39,7 @@ namespace Hotelio.Controllers
         }
 
         [HttpPost]
-        [Route("addHotel")]
+        [Route(Routes.AddHotel)]
         public async Task<ActionResult<Hotel>> AddHotel(Hotel room)
         {
             hotelService.AddHotel(room);
@@ -47,7 +48,7 @@ namespace Hotelio.Controllers
         }
 
         [HttpDelete]
-        [Route("deleteHotel/{id}")]
+        [Route(Routes.DeleteHotel)]
         public async Task<ActionResult<Hotel>> DeleteHotel(Guid id)
         {
             var hotel = hotelService.GetHotel(id);
@@ -61,7 +62,7 @@ namespace Hotelio.Controllers
         }
 
         [HttpPut]
-        [Route("updateHotel/{id}")]
+        [Route(Routes.UpdateHotel)]
         public async Task<ActionResult<Hotel>> UpdateHotel(Guid id, Hotel hotel)
         {
             var existingHotel = hotelService.GetHotel(id);

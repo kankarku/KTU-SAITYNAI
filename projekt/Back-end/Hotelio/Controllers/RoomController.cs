@@ -1,13 +1,14 @@
 ﻿using Hotelio.Context;
 using Hotelio.Data;
 using Hotelio.Data.Enums;
+using Hotelio.Data.Routes;
 using Hotelio.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Hotelio.Controllers
 {
-    [Route("api/[controller]")]
+
     [ApiController]
     public class RoomController : ControllerBase
     {
@@ -19,17 +20,17 @@ namespace Hotelio.Controllers
         }
 
         [HttpGet]
-        [Route("getRooms")]
+        [Route(Routes.GetRooms)]
         public async Task<ActionResult<Room>> GetRooms()
         {
             return Ok(roomService.GetRooms());
         }
 
         [HttpGet]
-        [Route("getRoom/{id}")]
-        public async Task<ActionResult<Room>> GetRoom(Guid id)
+        [Route(Routes.GetRoom)]
+        public async Task<ActionResult<Room>> GetRoom(Guid roomId)
         {
-            var room = roomService.GetRoom(id);
+            var room = roomService.GetRoom(roomId);
             if (room != null)
             {
                 return Ok(room);
@@ -39,7 +40,7 @@ namespace Hotelio.Controllers
         }
 
         [HttpPost]
-        [Route("addRoom")]
+        [Route(Routes.AddRoom)]
         public async Task<ActionResult<Room>> AddRoom(Guid hotelId, Room room)
         {
             var roomToBeAdded = roomService.AddRoom(hotelId, room);
@@ -52,24 +53,24 @@ namespace Hotelio.Controllers
         }
 
         [HttpDelete]
-        [Route("deleteRoom/{id}")]
-        public async Task<ActionResult<Room>> DeleteRoom(Guid id)
+        [Route(Routes.DeleteRoom)]
+        public async Task<ActionResult<Room>> DeleteRoom(Guid roomId)
         {
-            var room = roomService.GetRoom(id);
+            var room = roomService.GetRoom(roomId);
             if (room != null)
             {
                 roomService.DeleteRoom(room);
                 return NoContent();
             }
 
-            return NotFound($"Room with ID {id} not found");
+            return NotFound($"Room with ID {roomId} not found");
         }
 
         [HttpPut]
-        [Route("updateRoom/{id}")]
-        public async Task<ActionResult<Room>> UpdateRoom(Guid id, Room room)
+        [Route(Routes.UpdateRoom)]
+        public async Task<ActionResult<Room>> UpdateRoom(Guid roomId, Room room)
         {
-            var existingRoom = roomService.GetRoom(id);
+            var existingRoom = roomService.GetRoom(roomId);
             if (existingRoom != null)
             {
                 room.Id = existingRoom.Id;
@@ -77,7 +78,7 @@ namespace Hotelio.Controllers
                 return Ok(existingRoom);
             }
 
-            return NotFound($"Room with ID {id} not found");
+            return NotFound($"Room with ID {roomId} not found");
         }
     }
 }

@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using Hotelio.Context;
 using Hotelio.Services;
 using Microsoft.EntityFrameworkCore;
@@ -12,7 +13,11 @@ namespace Hotelio
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddControllers();
+            builder.Services.AddControllers()
+                .AddJsonOptions(opt =>
+                {
+                    opt.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+                });
             builder.Services.AddDbContext<CrudContext>(option => option.UseSqlServer("name=ConnectionStrings:HotelioDatabase"));
             builder.Services.AddScoped<HotelService>(); // here be adding services
             builder.Services.AddScoped<RoomService>(); // here be adding services

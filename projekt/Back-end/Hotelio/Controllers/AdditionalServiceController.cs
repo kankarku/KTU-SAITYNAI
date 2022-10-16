@@ -1,11 +1,11 @@
 ﻿using Hotelio.Data;
+using Hotelio.Data.Routes;
 using Hotelio.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Hotelio.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
     public class AdditionalServiceController : ControllerBase
     {
@@ -17,17 +17,17 @@ namespace Hotelio.Controllers
         }
 
         [HttpGet]
-        [Route("getAdditionalServices")]
+        [Route(Routes.GetAdditionalServices)]
         public async Task<ActionResult<AdditionalService>> GetAdditionalServices()
         {
             return Ok(additionalServiceService.GetAServices());
         }
 
         [HttpGet]
-        [Route("getAdditionalService/{id}")]
-        public async Task<ActionResult<AdditionalService>> GetAdditionalService(Guid id)
+        [Route(Routes.GetAdditionalService)]
+        public async Task<ActionResult<AdditionalService>> GetAdditionalService(Guid serviceId)
         {
-            var additionalService = additionalServiceService.GetAservice(id);
+            var additionalService = additionalServiceService.GetAservice(serviceId);
             if (additionalService != null)
             {
                 return Ok(additionalService);
@@ -37,7 +37,7 @@ namespace Hotelio.Controllers
         }
 
         [HttpPost]
-        [Route("addAdditionalService")]
+        [Route(Routes.AddAdditionalService)]
         public async Task<ActionResult<AdditionalService>> AddAdditionalService(Guid roomId, AdditionalService additionalService)
         {
             var serviceToBeAdded = additionalServiceService.AddAservice(roomId, additionalService);
@@ -50,24 +50,24 @@ namespace Hotelio.Controllers
         }
 
         [HttpDelete]
-        [Route("deleteAdditionalService/{id}")]
-        public async Task<ActionResult<AdditionalService>> DeleteAdditionalService(Guid id)
+        [Route(Routes.DeleteAdditionalService)]
+        public async Task<ActionResult<AdditionalService>> DeleteAdditionalService(Guid serviceId)
         {
-            var additionalService = additionalServiceService.GetAservice(id);
+            var additionalService = additionalServiceService.GetAservice(serviceId);
             if (additionalService != null)
             {
                 additionalServiceService.DeleteAservice(additionalService);
                 return NoContent();
             }
 
-            return NotFound($"Room with ID {id} not found");
+            return NotFound($"Room with ID {serviceId} not found");
         }
 
         [HttpPut]
-        [Route("updateAdditionalService/{id}")]
-        public async Task<ActionResult<AdditionalService>> UpdateAdditionalService(Guid id, AdditionalService additionalService)
+        [Route(Routes.UpdateAdditionalService)]
+        public async Task<ActionResult<AdditionalService>> UpdateAdditionalService(Guid serviceId, AdditionalService additionalService)
         {
-            var existingService = additionalServiceService.GetAservice(id);
+            var existingService = additionalServiceService.GetAservice(serviceId);
             if (existingService != null)
             {
                 additionalService.Id = existingService.Id;
@@ -75,7 +75,7 @@ namespace Hotelio.Controllers
                 return Ok(existingService);
             }
 
-            return NotFound($"Room with ID {id} not found");
+            return NotFound($"Room with ID {serviceId} not found");
         }
     }
 }

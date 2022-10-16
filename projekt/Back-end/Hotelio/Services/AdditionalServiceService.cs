@@ -16,7 +16,7 @@ namespace Hotelio.Services
         {
             return crudContext.AdditionalServices
                 .Include(x => x.Room)
-                .Include(x => x.Room.Hotel)
+                .ThenInclude(x => x.Hotel)
                 .SingleOrDefault(x => x.Id == id);
         }
 
@@ -24,7 +24,7 @@ namespace Hotelio.Services
         {
             return crudContext.AdditionalServices
                 .Include(x => x.Room)
-                .Include(x => x.Room.Hotel)
+                .ThenInclude(x => x.Hotel)
                 .ToList();
         }
         
@@ -36,11 +36,15 @@ namespace Hotelio.Services
 
         public AdditionalService AddAservice(Guid RoomId, AdditionalService additionalService)
         {
-            var room = crudContext.Rooms.Find(RoomId);
+            var room = crudContext.Rooms
+                .Include(x => x.Hotel)
+                .SingleOrDefault(x => x.Id == RoomId);
+
             if (room == null) return null;
 
             additionalService.Room = room;
             additionalService.Id = Guid.NewGuid();
+
             crudContext.AdditionalServices.Add(additionalService);
             crudContext.SaveChanges();
             return additionalService;
