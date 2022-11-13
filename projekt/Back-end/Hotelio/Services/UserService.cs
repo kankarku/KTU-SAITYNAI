@@ -23,8 +23,8 @@ namespace Hotelio.Services
             return await _context.Users.FindAsync(id);
         }
 
-        public async Task<Room?> GetRoom(int roomId) => (await _context.Rooms.Include(m => m.Residents).ToListAsync())
-            .FirstOrDefault(x => x.Id == roomId);
+        //public async Task<Room?> GetRoom(int roomId) => (await _context.Rooms.Include(m => m.Residents).ToListAsync())
+        //    .FirstOrDefault(x => x.Id == roomId);
 
         public async Task<bool> Update(int id, string? username, string? password, string? fullName, string? phoneNumber)
         {

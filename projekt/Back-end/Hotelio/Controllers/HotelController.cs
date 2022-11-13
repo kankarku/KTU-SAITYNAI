@@ -1,7 +1,9 @@
-﻿using Hotelio.Context;
+﻿using Hotelio.Auth;
+using Hotelio.Context;
 using Hotelio.Data;
 using Hotelio.Data.Routes;
 using Hotelio.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,6 +11,7 @@ namespace Hotelio.Controllers
 {
     //[Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class HotelController : ControllerBase
     {
         private HotelService hotelService;
@@ -20,6 +23,7 @@ namespace Hotelio.Controllers
 
         [HttpGet]
         [Route(Routes.GetHotels)]
+        [Authorize(Roles = $"{HotelRoles.Owner}, {HotelRoles.Admin}")]
         public async Task<ActionResult<Hotel>> GetHotels()
         {
             return Ok(hotelService.GetHotels());
@@ -27,6 +31,7 @@ namespace Hotelio.Controllers
 
         [HttpGet]
         [Route(Routes.GetHotel)]
+        [Authorize(Roles = $"{HotelRoles.Owner}, {HotelRoles.Admin}")]
         public async Task<ActionResult<Hotel>> GetHotel(Guid id)
         {
             var hotel = hotelService.GetHotel(id);
@@ -40,6 +45,7 @@ namespace Hotelio.Controllers
 
         [HttpPost]
         [Route(Routes.AddHotel)]
+        [Authorize(Roles = $"{HotelRoles.Owner}, {HotelRoles.Admin}")]
         public async Task<ActionResult<Hotel>> AddHotel(Hotel room)
         {
             hotelService.AddHotel(room);
@@ -49,6 +55,7 @@ namespace Hotelio.Controllers
 
         [HttpDelete]
         [Route(Routes.DeleteHotel)]
+        [Authorize(Roles = $"{HotelRoles.Owner}, {HotelRoles.Admin}")]
         public async Task<ActionResult<Hotel>> DeleteHotel(Guid id)
         {
             var hotel = hotelService.GetHotel(id);
@@ -63,6 +70,7 @@ namespace Hotelio.Controllers
 
         [HttpPut]
         [Route(Routes.UpdateHotel)]
+        [Authorize(Roles = $"{HotelRoles.Owner}, {HotelRoles.Admin}")]
         public async Task<ActionResult<Hotel>> UpdateHotel(Guid id, Hotel hotel)
         {
             var existingHotel = hotelService.GetHotel(id);

@@ -18,13 +18,34 @@ namespace Hotelio.Context
         public async Task SeedAsync()
         {
             await AddDefaultRoles();
+            await AddAdminUser();
             await AddOwnerUser();
+        }
+
+        private async Task AddAdminUser()
+        {
+            var adminUser = new User()
+            {
+                UserName = "admin",
+                Email = "admin@admin.lt",
+            };
+
+            var existingUser = await _userManager.FindByEmailAsync(adminUser.Email);
+            if (existingUser == null)
+            {
+                var createdAdminUser = await _userManager.CreateAsync(adminUser, "admin");
+                if (createdAdminUser.Succeeded)
+                {
+                    await _userManager.AddToRoleAsync(adminUser, HotelRoles.Admin);
+                }
+            }
         }
 
         private async Task AddOwnerUser()
         {
             var ownerUser = new User()
             {
+                UserName = "owner",
                 Email = "owner@owner.lt",
             };
 

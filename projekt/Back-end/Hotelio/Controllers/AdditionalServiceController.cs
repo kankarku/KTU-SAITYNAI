@@ -1,12 +1,17 @@
-﻿using Hotelio.Data;
+﻿using System.Security.Claims;
+using Hotelio.Auth;
+using Hotelio.Data;
 using Hotelio.Data.Routes;
 using Hotelio.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.JsonWebTokens;
 
 namespace Hotelio.Controllers
 {
     [ApiController]
+    [Authorize]
     public class AdditionalServiceController : ControllerBase
     {
         private AdditionalServiceService additionalServiceService;
@@ -18,6 +23,7 @@ namespace Hotelio.Controllers
 
         [HttpGet]
         [Route(Routes.GetAdditionalServices)]
+        [Authorize(Roles = $"{HotelRoles.Owner}, {HotelRoles.Admin}")]
         public async Task<ActionResult<AdditionalService>> GetAdditionalServices()
         {
             return Ok(additionalServiceService.GetAServices());
@@ -25,9 +31,11 @@ namespace Hotelio.Controllers
 
         [HttpGet]
         [Route(Routes.GetAdditionalService)]
+        [Authorize(Roles = HotelRoles.Client)]
         public async Task<ActionResult<AdditionalService>> GetAdditionalService(Guid serviceId)
         {
             var additionalService = additionalServiceService.GetAservice(serviceId);
+
             if (additionalService != null)
             {
                 return Ok(additionalService);
@@ -38,19 +46,26 @@ namespace Hotelio.Controllers
 
         [HttpPost]
         [Route(Routes.AddAdditionalService)]
+        [Authorize(Roles = HotelRoles.Client)]
         public async Task<ActionResult<AdditionalService>> AddAdditionalService(Guid roomId, AdditionalService additionalService)
         {
-            var serviceToBeAdded = additionalServiceService.AddAservice(roomId, additionalService);
-            if (serviceToBeAdded == null)
-            {
-                return BadRequest();
-            }
+            //var serviceToBeAdded = additionalServiceService.AddAservice(roomId, additionalService);
+            //additionalService.UserId = User.FindFirstValue(JwtRegisteredClaimNames.Sub);
+            //if (serviceToBeAdded == null)
+            //{
+            //    return BadRequest();
+            //}
 
-            return Created(HttpContext.Request.Scheme, additionalService);
+            //return Created(HttpContext.Request.Scheme, additionalService);
+
+            return additionalServiceService.AddAservice(User.FindFirstValue(JwtRegisteredClaimNames.Sub), roomId, additionalService) != null
+                ? CreatedAtAction(nameof(AddAdditionalService), "Additional Service created.")
+                : BadRequest($"User with id = {User.FindFirstValue(JwtRegisteredClaimNames.Sub)} was not found");
         }
 
         [HttpDelete]
         [Route(Routes.DeleteAdditionalService)]
+        [Authorize(Roles = HotelRoles.Client)]
         public async Task<ActionResult<AdditionalService>> DeleteAdditionalService(Guid serviceId)
         {
             var additionalService = additionalServiceService.GetAservice(serviceId);
@@ -65,13 +80,16 @@ namespace Hotelio.Controllers
 
         [HttpPut]
         [Route(Routes.UpdateAdditionalService)]
+        [Authorize(Roles = HotelRoles.Client)]
         public async Task<ActionResult<AdditionalService>> UpdateAdditionalService(Guid serviceId, AdditionalService additionalService)
         {
             var existingService = additionalServiceService.GetAservice(serviceId);
             if (existingService != null)
             {
                 additionalService.Id = existingService.Id;
-                additionalServiceService.EditAservice(additionalService);
+                return await additionalServiceService.EditAservice(User, additionalService)
+                    ? Ok()
+                    : NotFound($"Room with ID {serviceId} not found");
                 return Ok(existingService);
             }
 

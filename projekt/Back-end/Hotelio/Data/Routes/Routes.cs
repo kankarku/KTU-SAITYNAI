@@ -18,9 +18,9 @@
         
         //additional service routes
         public const string GetAdditionalServices = "api/hotel/{hotelId:Guid}/room/{roomId:Guid}/additionalService";
-        public const string GetAdditionalService = "api/hotel/{hotelId:Guid}/room/{roomId:Guid}/{serviceId:Guid}";
+        public const string GetAdditionalService = "api/hotel/{hotelId:Guid}/room/{roomId:Guid}/additionalService/{serviceId:Guid}";
         public const string AddAdditionalService = "api/hotel/{hotelId:Guid}/room/{roomId:Guid}/additionalService";
-        public const string DeleteAdditionalService = "api/hotel/{hotelId:Guid}/room/{roomId:Guid}/{serviceId:Guid}";
-        public const string UpdateAdditionalService = "api/hotel/{hotelId:Guid}/room/{roomId:Guid}/{serviceId:Guid}";
+        public const string DeleteAdditionalService = "api/hotel/{hotelId:Guid}/room/{roomId:Guid}/additionalService/{serviceId:Guid}";
+        public const string UpdateAdditionalService = "api/hotel/{hotelId:Guid}/room/{roomId:Guid}/additionalService/{serviceId:Guid}";
     }
 }

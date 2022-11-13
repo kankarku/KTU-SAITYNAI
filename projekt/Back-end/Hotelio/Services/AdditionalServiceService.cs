@@ -1,5 +1,8 @@
-﻿using Hotelio.Context;
+﻿using System.Security.Claims;
+using Hotelio.Context;
 using Hotelio.Data;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace Hotelio.Services
@@ -7,9 +10,14 @@ namespace Hotelio.Services
     public class AdditionalServiceService
     {
         private CrudContext crudContext;
-        public AdditionalServiceService(CrudContext crudContext)
+        private readonly UserManager<User> _userManager;
+        private readonly IAuthorizationService _authorizationService;
+
+        public AdditionalServiceService(CrudContext crudContext, UserManager<User> userManager, IAuthorizationService authorizationService)
         {
             this.crudContext = crudContext;
+            _userManager = userManager;
+            _authorizationService = authorizationService;
         }
 
         public AdditionalService GetAservice(Guid id)
@@ -34,7 +42,7 @@ namespace Hotelio.Services
             crudContext.SaveChanges();
         }
 
-        public AdditionalService AddAservice(Guid RoomId, AdditionalService additionalService)
+        public AdditionalService AddAservice(string clientId, Guid RoomId, AdditionalService additionalService)
         {
             var room = crudContext.Rooms
                 .Include(x => x.Hotel)
@@ -44,15 +52,24 @@ namespace Hotelio.Services
 
             additionalService.Room = room;
             additionalService.Id = Guid.NewGuid();
+            additionalService.UserId = clientId;
 
             crudContext.AdditionalServices.Add(additionalService);
             crudContext.SaveChanges();
             return additionalService;
         }
 
-        public AdditionalService EditAservice(AdditionalService additionalService)
+        public async Task<bool> EditAservice(ClaimsPrincipal user, AdditionalService additionalService)
         {
             var existingService = crudContext.AdditionalServices.Find(additionalService.Id);
+            if(existingService == null) return false;
+
+            var authResult = await _authorizationService.AuthorizeAsync(user, existingService, "RequestResourceOwner");
+            if (!authResult.Succeeded)
+            {
+                return false;
+            }
+
             if (existingService != null)
             {
                 existingService.Name = additionalService.Name;
@@ -61,7 +78,7 @@ namespace Hotelio.Services
                 crudContext.SaveChanges();
             }
 
-            return additionalService;
+            return true;
         }
     }
 }
