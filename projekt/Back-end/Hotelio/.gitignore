@@ -1,0 +1,10 @@
+﻿*.swp
+*.*~
+project.lock.json
+.DS_Store
+*.pyc
+nupkg/
+packages/
+
+# Visual Studio Code
+.vscode
