@@ -33,7 +33,7 @@ namespace Hotelio.Controllers
         [Route(Routes.GetAdditionalService)]
         public async Task<ActionResult<AdditionalService>> GetAdditionalService(Guid serviceId)
         {
-            var additionalService = additionalServiceService.GetAservice(User, serviceId);
+            var additionalService = await additionalServiceService.GetAservice(User, serviceId);
 
             if (additionalService != null)
             {
