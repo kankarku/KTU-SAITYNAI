@@ -31,10 +31,9 @@ namespace Hotelio.Controllers
 
         [HttpGet]
         [Route(Routes.GetAdditionalService)]
-        [Authorize(Roles = HotelRoles.Client)]
         public async Task<ActionResult<AdditionalService>> GetAdditionalService(Guid serviceId)
         {
-            var additionalService = additionalServiceService.GetAservice(serviceId);
+            var additionalService = additionalServiceService.GetAservice(User, serviceId);
 
             if (additionalService != null)
             {
@@ -68,7 +67,7 @@ namespace Hotelio.Controllers
         [Authorize(Roles = HotelRoles.Client)]
         public async Task<ActionResult<AdditionalService>> DeleteAdditionalService(Guid serviceId)
         {
-            var additionalService = additionalServiceService.GetAservice(serviceId);
+            var additionalService = await additionalServiceService.GetAservice(User,serviceId);
             if (additionalService != null)
             {
                 additionalServiceService.DeleteAservice(additionalService);
@@ -83,14 +82,14 @@ namespace Hotelio.Controllers
         [Authorize(Roles = HotelRoles.Client)]
         public async Task<ActionResult<AdditionalService>> UpdateAdditionalService(Guid serviceId, AdditionalService additionalService)
         {
-            var existingService = additionalServiceService.GetAservice(serviceId);
+            var existingService = await additionalServiceService.GetAservice(User, serviceId);
             if (existingService != null)
             {
-                additionalService.Id = existingService.Id;
+                additionalService.Id = (existingService.Id);
                 return await additionalServiceService.EditAservice(User, additionalService)
                     ? Ok()
                     : NotFound($"Room with ID {serviceId} not found");
-                return Ok(existingService);
+                //return Ok(existingService);
             }
 
             return NotFound($"Room with ID {serviceId} not found");

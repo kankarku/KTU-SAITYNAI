@@ -1,4 +1,5 @@
 ﻿using System.Security.Claims;
+using Hotelio.Auth;
 using Hotelio.Context;
 using Hotelio.Data;
 using Microsoft.AspNetCore.Authorization;
@@ -20,12 +21,21 @@ namespace Hotelio.Services
             _authorizationService = authorizationService;
         }
 
-        public AdditionalService GetAservice(Guid id)
+        public async Task<AdditionalService?> GetAservice(ClaimsPrincipal user, Guid id)
         {
-            return crudContext.AdditionalServices
+            var service =  crudContext.AdditionalServices
                 .Include(x => x.Room)
                 .ThenInclude(x => x.Hotel)
                 .SingleOrDefault(x => x.Id == id);
+
+            if (user.IsInRole(HotelRoles.Admin) || user.IsInRole(HotelRoles.Owner))
+            {
+                return service;
+            }
+
+            var authResult = await _authorizationService.AuthorizeAsync(user, service, "RequestResourceOwner");
+
+            return !authResult.Succeeded ? null : service;
         }
 
         public List<AdditionalService> GetAServices()
