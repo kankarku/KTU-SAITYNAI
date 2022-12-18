@@ -1,8 +1,8 @@
 import { Room } from "./RoomModels";
 
 export class UrlManager {
-  static _serverUrl = "https://localhost:7181/api/";
-  //static _serverUrl = "https://bendrabutissystem.azurewebsites.net/api/";
+  //static _serverUrl = "https://localhost:7181/api/";
+  static _serverUrl = "https://hotelio20221120180632.azurewebsites.net/api/";
 
   /** Auth */
 

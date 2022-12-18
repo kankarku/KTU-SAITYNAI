@@ -16,6 +16,14 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 var builder = WebApplication.CreateBuilder(args);
 JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsApi",
+        builder => builder.WithOrigins("http://localhost:3000", "https://hoteliofront.azurewebsites.net")
+            .AllowAnyHeader()
+            .AllowAnyMethod());
+});
+
 // Add services to the container.
 builder.Services.AddControllers()
     .AddJsonOptions(opt =>
@@ -83,6 +91,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors("CorsApi");
 app.UseSpaStaticFiles();
 
 app.MapWhen(req => !req.Request.Path.Value.StartsWith("/api"), appBuilder =>

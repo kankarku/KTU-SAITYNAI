@@ -4,6 +4,7 @@ using Hotelio.Data;
 using Hotelio.Data.Routes;
 using Hotelio.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -12,6 +13,7 @@ namespace Hotelio.Controllers
 {
     [ApiController]
     [AllowAnonymous]
+    [EnableCors("CorsApi")]
     [Route("api")]
     public class AuthController : ControllerBase
     {

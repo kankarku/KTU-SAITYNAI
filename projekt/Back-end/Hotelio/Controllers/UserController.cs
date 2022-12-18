@@ -1,12 +1,14 @@
 ﻿using Hotelio.Auth;
 using Hotelio.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Hotelio.Controllers
 {
     [ApiController]
     [Authorize(Roles = HotelRoles.Owner)]
+    [EnableCors("CorsApi")]
     [Route("api/Users")]
     public class UserController : ControllerBase
     {

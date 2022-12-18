@@ -4,6 +4,7 @@ using Hotelio.Data;
 using Hotelio.Data.Routes;
 using Hotelio.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.JsonWebTokens;
@@ -11,6 +12,7 @@ using Microsoft.IdentityModel.JsonWebTokens;
 namespace Hotelio.Controllers
 {
     [ApiController]
+    [EnableCors("CorsApi")]
     [Authorize]
     public class AdditionalServiceController : ControllerBase
     {
