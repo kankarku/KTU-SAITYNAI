@@ -15,6 +15,7 @@ namespace Hotelio.Services
         public Hotel GetHotel(Guid id)
         {
             return crudContext.Hotels
+                .Include(h => h.Rooms)
                 .SingleOrDefault(x => x.Id == id);
         }
 
@@ -45,6 +46,7 @@ namespace Hotelio.Services
             {
                 existingHotel.Location = hotel.Location;
                 existingHotel.Name = hotel.Name;
+                existingHotel.Rooms = hotel.Rooms;
                 crudContext.Hotels.Update(existingHotel);
                 crudContext.SaveChanges();
             }

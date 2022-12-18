@@ -2,7 +2,7 @@
 enum Role {
     Owner = "Owner",
     Admin = "Admin",
-    User = "User",
+    Client = "Client",
 }
 
 type LoginRequest = {

@@ -1,32 +1,28 @@
 //import { Link } from "./Other"
 
-type Room = {
-    id: number,
-    name: string,
-    description: string | null,
-    coverImagePath: string | null,
-    directors: string[],
-    starringCast: string[],
- //   poster: Link,
-    genres: string[],
-    reviews: string[],
+import { CreateHotelDTO, Hotel } from "./HotelModels";
+
+enum RoomType {
+  Basic = 0,
+  Advanced = 1,
+  Luxury = 2,
+  Presidential = 3,
 }
+
+type Room = {
+  roomLevel: number;
+  roomType: RoomType;
+};
 
 type CreateRoomDTO = {
-    name: string,
-    description: string | null,
-    coverImagePath: string | null,
-    directors: string[],
-    starringCast: string[],
-    poster: number,
-    genres: number[]
-}
+  roomLevel: number;
+  roomType: number;
+  hotel: CreateHotelDTO;
+};
 
 type UpdateRoomDTO = {
-    coverImagePath: string | null,
-    description: string | null,
-    directors: string[],
-    starringCast: string[]
-}
+  roomLevel: number;
+  roomType: number;
+};
 
-export type { Room, CreateRoomDTO, UpdateRoomDTO }
+export type { Room, CreateRoomDTO, UpdateRoomDTO, RoomType };

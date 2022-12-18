@@ -4,6 +4,6 @@
     {
         public string Location { get; set; }
         public string Name { get; set; }
-        public List<Room> Rooms;
+        public List<Room> Rooms { get; set; }
     }
 }
