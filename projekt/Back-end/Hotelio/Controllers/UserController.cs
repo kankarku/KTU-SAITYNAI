@@ -19,12 +19,25 @@ namespace Hotelio.Controllers
             _userService = userService;
         }
 
+        /// <summary>
+        /// Gets all users
+        /// </summary>
+        /// <returns>List of all users</returns>
+        /// <response code="200">List of all users</response>
+        /// <response code="401">User is unauthorized to perform this action</response>
         [HttpGet]
         public async Task<IActionResult> Get()
         {
             return Ok(await _userService.GetUsers());
         }
 
+        /// <summary>
+        /// Gets a specific user's information
+        /// </summary>
+        /// <param name="id">User's id</param>
+        /// <returns>A specific user's information</returns>
+        /// <response code="200">Specific's user's info</response>
+        /// <response code="401">User is unauthorized to perform this action</response>
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {

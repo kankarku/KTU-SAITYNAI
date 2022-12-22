@@ -1,8 +1,5 @@
 C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\bin\Release\net6.0\appsettings.Development.json
 C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\bin\Release\net6.0\appsettings.json
-C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\bin\Release\net6.0\hoteliofront\package-lock.json
-C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\bin\Release\net6.0\hoteliofront\package.json
-C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\bin\Release\net6.0\hoteliofront\public\manifest.json
 C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\bin\Release\net6.0\Hotelio.exe
 C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\bin\Release\net6.0\Hotelio.deps.json
 C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\bin\Release\net6.0\Hotelio.runtimeconfig.json
@@ -74,3 +71,10 @@ C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\
 C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\obj\Release\net6.0\staticwebassets\msbuild.buildMultiTargeting.Hotelio.props
 C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\obj\Release\net6.0\staticwebassets\msbuild.buildTransitive.Hotelio.props
 C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\obj\Release\net6.0\staticwebassets.pack.json
+C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\bin\Release\net6.0\front\package-lock.json
+C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\bin\Release\net6.0\front\package.json
+C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\bin\Release\net6.0\front\public\manifest.json
+C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\bin\Release\net6.0\front\tsconfig.json
+C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\bin\Release\net6.0\Microsoft.AspNetCore.SpaServices.Extensions.dll
+C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\bin\Release\net6.0\front\build\asset-manifest.json
+C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\bin\Release\net6.0\front\build\manifest.json

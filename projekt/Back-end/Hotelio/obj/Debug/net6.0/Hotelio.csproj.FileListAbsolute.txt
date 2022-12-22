@@ -76,3 +76,7 @@ C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\
 C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\obj\Debug\net6.0\Hotelio.pdb
 C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\obj\Debug\net6.0\Hotelio.genruntimeconfig.cache
 C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\obj\Debug\net6.0\ref\Hotelio.dll
+C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\bin\Debug\net6.0\front\build\asset-manifest.json
+C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\bin\Debug\net6.0\front\build\manifest.json
+C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\bin\Debug\net6.0\Hotelio.xml
+C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\obj\Debug\net6.0\Hotelio.xml

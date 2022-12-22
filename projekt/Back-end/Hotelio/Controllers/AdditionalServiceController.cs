@@ -23,6 +23,12 @@ namespace Hotelio.Controllers
             this.additionalServiceService = additionalServiceService;
         }
 
+        /// <summary>
+        /// Gets all aa and their data
+        /// </summary>
+        /// <returns>List of all aa</returns>
+        /// <response code="200">List of all aa</response>
+        /// <response code="401">User is unauthorized to perform this action</response>
         [HttpGet]
         [Route(Routes.GetAdditionalServices)]
         [Authorize(Roles = $"{HotelRoles.Owner}, {HotelRoles.Admin}")]
@@ -31,6 +37,14 @@ namespace Hotelio.Controllers
             return Ok(additionalServiceService.GetAServices());
         }
 
+        /// <summary>
+        /// Gets a specific aa
+        /// </summary>
+        /// <param name="id">Aa's id</param>
+        /// <returns>Found aa or error message</returns>
+        /// <response code="200">Found aa</response>
+        /// <response code="401">User is unauthorized to perform this action</response>
+        /// <response code="404">Aa with specified id was not found</response>
         [HttpGet]
         [Route(Routes.GetAdditionalService)]
         public async Task<ActionResult<AdditionalService>> GetAdditionalService(Guid serviceId)
@@ -45,6 +59,14 @@ namespace Hotelio.Controllers
             return NotFound("No additional service with such Id exists");
         }
 
+
+        /// <summary>
+        /// Creates a new aa
+        /// </summary>
+        /// <returns>Success or error message</returns>
+        /// <response code="201">aa created successfully</response>
+        /// <response code="401">User is unauthorized to perform this action</response>
+        /// <response code="409">aa with specified number already exists</response>
         [HttpPost]
         [Route(Routes.AddAdditionalService)]
         [Authorize(Roles = HotelRoles.Client)]
@@ -64,6 +86,13 @@ namespace Hotelio.Controllers
                 : BadRequest($"User with id = {User.FindFirstValue(JwtRegisteredClaimNames.Sub)} was not found");
         }
 
+        /// <summary>
+        /// Deletes a specific aa
+        /// </summary>
+        /// <param name="id">aa id to delete</param>
+        /// <returns>Success or error message</returns>
+        /// <response code="200">aa deleted successfully</response>
+        /// <response code="404">aa with specified id was not found</response>
         [HttpDelete]
         [Route(Routes.DeleteAdditionalService)]
         [Authorize(Roles = HotelRoles.Client)]
@@ -79,6 +108,14 @@ namespace Hotelio.Controllers
             return NotFound($"Room with ID {serviceId} not found");
         }
 
+        /// <summary>
+        /// Updates a specified aa
+        /// </summary>
+        /// <returns>Success or error message</returns>
+        /// <response code="200">aa updated successfully</response>
+        /// <response code="401">User is unauthorized to perform this action</response>
+        /// <response code="400">No parameters were used in API call</response>
+        /// <response code="404">aa with specified id was not found</response>
         [HttpPut]
         [Route(Routes.UpdateAdditionalService)]
         [Authorize(Roles = HotelRoles.Client)]

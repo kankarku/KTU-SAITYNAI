@@ -1,9 +1,12 @@
 C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\obj\Release\net6.0\PubTmp\Out\Hotelio.exe
 C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
 C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\obj\Release\net6.0\PubTmp\Out\appsettings.json
-C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\obj\Release\net6.0\PubTmp\Out\hoteliofront\package-lock.json
-C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\obj\Release\net6.0\PubTmp\Out\hoteliofront\package.json
-C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\obj\Release\net6.0\PubTmp\Out\hoteliofront\public\manifest.json
+C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\obj\Release\net6.0\PubTmp\Out\front\build\asset-manifest.json
+C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\obj\Release\net6.0\PubTmp\Out\front\build\manifest.json
+C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\obj\Release\net6.0\PubTmp\Out\front\package-lock.json
+C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\obj\Release\net6.0\PubTmp\Out\front\package.json
+C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\obj\Release\net6.0\PubTmp\Out\front\public\manifest.json
+C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\obj\Release\net6.0\PubTmp\Out\front\tsconfig.json
 C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\obj\Release\net6.0\PubTmp\Out\Hotelio.dll
 C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\obj\Release\net6.0\PubTmp\Out\Hotelio.runtimeconfig.json
 C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\obj\Release\net6.0\PubTmp\Out\Hotelio.pdb
@@ -11,6 +14,7 @@ C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\
 C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.SpaServices.Extensions.dll
 C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\obj\Release\net6.0\PubTmp\Out\Microsoft.Data.SqlClient.dll
 C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\obj\Release\net6.0\PubTmp\Out\Microsoft.EntityFrameworkCore.dll
 C:\Users\ADMIN\Desktop\UNIVERSITETAS\KETVIRTAS KURSAS\SAITYNAI\projekt\Back-end\Hotelio\obj\Release\net6.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Abstractions.dll

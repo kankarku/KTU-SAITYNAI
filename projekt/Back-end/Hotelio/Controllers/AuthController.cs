@@ -26,6 +26,17 @@ namespace Hotelio.Controllers
             _tokenManager = tokenManager;
         }
 
+        /// <summary>
+        /// Registers a new user.
+        /// </summary>
+        /// <param name="registerUserDto">User's name and password.</param>
+        /// <remarks>
+        /// <para>
+        /// Returns if the register action was successful.
+        /// </para>
+        /// </remarks>
+        /// <response code="201">Returns success.</response>
+        /// <response code="400">Bad request parameters were used.</response>
         [HttpPost]
         [Route("register")]
         public async Task<IActionResult> Register(RegisterUserDto registerUserDto)
@@ -51,6 +62,17 @@ namespace Hotelio.Controllers
             return CreatedAtAction(nameof(Register), new UserDto(newUser.Id, newUser.Email));
         }
 
+        /// <summary>
+        /// Authenticates the user by providing an authentication token.
+        /// </summary>
+        /// <param name="loginDto">User's email and password.</param>
+        /// <remarks>
+        /// <para>
+        /// Returns JWT authentication token if successful.
+        /// </para>
+        /// </remarks>
+        /// <response code="200">JWT authentication token returned.</response>
+        /// <response code="400">User credentials were invalid.</response>
         [HttpPost]
         [Route("login")]
         public async Task<IActionResult> Login(LoginDto loginDto)

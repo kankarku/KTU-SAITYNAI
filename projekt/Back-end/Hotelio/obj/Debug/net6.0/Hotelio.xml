@@ -1,0 +1,200 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hotelio</name>
+    </assembly>
+    <members>
+        <member name="M:Hotelio.Controllers.AdditionalServiceController.GetAdditionalServices">
+            <summary>
+            Gets all aa and their data
+            </summary>
+            <returns>List of all aa</returns>
+            <response code="200">List of all aa</response>
+            <response code="401">User is unauthorized to perform this action</response>
+        </member>
+        <member name="M:Hotelio.Controllers.AdditionalServiceController.GetAdditionalService(System.Guid)">
+            <summary>
+            Gets a specific aa
+            </summary>
+            <param name="id">Aa's id</param>
+            <returns>Found aa or error message</returns>
+            <response code="200">Found aa</response>
+            <response code="401">User is unauthorized to perform this action</response>
+            <response code="404">Aa with specified id was not found</response>
+        </member>
+        <member name="M:Hotelio.Controllers.AdditionalServiceController.AddAdditionalService(System.Guid,Hotelio.Data.AdditionalService)">
+            <summary>
+            Creates a new aa
+            </summary>
+            <returns>Success or error message</returns>
+            <response code="201">aa created successfully</response>
+            <response code="401">User is unauthorized to perform this action</response>
+            <response code="409">aa with specified number already exists</response>
+        </member>
+        <member name="M:Hotelio.Controllers.AdditionalServiceController.DeleteAdditionalService(System.Guid)">
+            <summary>
+            Deletes a specific aa
+            </summary>
+            <param name="id">aa id to delete</param>
+            <returns>Success or error message</returns>
+            <response code="200">aa deleted successfully</response>
+            <response code="404">aa with specified id was not found</response>
+        </member>
+        <member name="M:Hotelio.Controllers.AdditionalServiceController.UpdateAdditionalService(System.Guid,Hotelio.Data.AdditionalService)">
+            <summary>
+            Updates a specified aa
+            </summary>
+            <returns>Success or error message</returns>
+            <response code="200">aa updated successfully</response>
+            <response code="401">User is unauthorized to perform this action</response>
+            <response code="400">No parameters were used in API call</response>
+            <response code="404">aa with specified id was not found</response>
+        </member>
+        <member name="M:Hotelio.Controllers.AuthController.Register(Hotelio.Auth.Model.RegisterUserDto)">
+            <summary>
+            Registers a new user.
+            </summary>
+            <param name="registerUserDto">User's name and password.</param>
+            <remarks>
+            <para>
+            Returns if the register action was successful.
+            </para>
+            </remarks>
+            <response code="201">Returns success.</response>
+            <response code="400">Bad request parameters were used.</response>
+        </member>
+        <member name="M:Hotelio.Controllers.AuthController.Login(Hotelio.Auth.Model.LoginDto)">
+            <summary>
+            Authenticates the user by providing an authentication token.
+            </summary>
+            <param name="loginDto">User's email and password.</param>
+            <remarks>
+            <para>
+            Returns JWT authentication token if successful.
+            </para>
+            </remarks>
+            <response code="200">JWT authentication token returned.</response>
+            <response code="400">User credentials were invalid.</response>
+        </member>
+        <member name="M:Hotelio.Controllers.HotelController.GetHotels">
+            <summary>
+            Gets all available hotels.
+            </summary>
+            <remarks>
+            <para>
+            Returns all hotels.
+            </para>
+            </remarks>
+            <response code="200">List of hotels.</response>
+        </member>
+        <member name="M:Hotelio.Controllers.HotelController.GetHotel(System.Guid)">
+            <summary>
+            Fetches a specific hotel.
+            </summary>
+            <param name="id">hotels's id.</param>
+            <remarks>
+            <para>
+            Returns hotel with its information.
+            </para>
+            </remarks>
+            <response code="200">Found hotel.</response>
+            <response code="400">Hotel with specified id was not found.</response>
+        </member>
+        <member name="M:Hotelio.Controllers.HotelController.AddHotel(Hotelio.Data.Hotel)">
+            <summary>
+            Creates a new hotel.
+            </summary>
+            <para>
+            Success/failure message
+            </para>
+            <response code="201">Hotel created successfully.</response>
+            <response code="400">Invalid parameters were entered.</response>
+            <response code="401">User is unauthorized to perform this action.</response>
+            <response code="409">Hotel with the same name already exists.</response>
+        </member>
+        <member name="M:Hotelio.Controllers.HotelController.DeleteHotel(System.Guid)">
+            <summary>
+            Deletes a specific hotel.
+            </summary>
+            <param name="id">Hotel id</param>
+            <returns>Success/failure message</returns>
+            <response code="200">Hotel deleted successfully</response>
+            <response code="401">User is unauthorized to perform this action.</response>
+            <response code="404">Hotel not found </response>
+        </member>
+        <member name="M:Hotelio.Controllers.HotelController.UpdateHotel(System.Guid,Hotelio.Data.Hotel)">
+            <summary>
+            Updates a specific hotel.
+            </summary>
+            <returns>Success/failure message</returns>
+            <response code="200">Hotel updated successfully</response>
+            <response code="400">No parameters were entered</response>
+            <response code="401">User is unauthorized to perform this action.</response>
+            <response code="404">Hotel not found </response>
+        </member>
+        <member name="M:Hotelio.Controllers.RoomController.GetRooms">
+            <summary>
+            Gets all rooms
+            </summary>
+            <returns>List of all rooms</returns>
+            <response code="200">List of all rooms returned</response>
+            <response code="401">User is unauthorized to perform this action</response>
+        </member>
+        <member name="M:Hotelio.Controllers.RoomController.GetRoom(System.Guid)">
+            <summary>
+            Fetches a specific room
+            </summary>
+            <param name="id">room's id</param>
+            <returns>The found room, fail otherwise</returns>
+            <response code="200">Found room</response>
+            <response code="200">User is not authorized to perform this action</response>
+            <response code="404">room with specified id was not found</response>
+        </member>
+        <member name="M:Hotelio.Controllers.RoomController.AddRoom(System.Guid,Hotelio.Data.Room)">
+            <summary>
+            Creates a new room
+            </summary>
+            <returns>Success or error message</returns>
+            <response code="201">room created</response>
+            <response code="401">User is unauthorized to perform this action</response>
+            <response code="404">Dormitory with specified id was not found</response>
+            <response code="409">Room with specified number already exists</response>
+        </member>
+        <member name="M:Hotelio.Controllers.RoomController.DeleteRoom(System.Guid)">
+            <summary>
+            Deletes a specified room
+            </summary>
+            <param name="id">Room's id</param>
+            <returns>Success or error message</returns>
+            <response code="200">Room was deleted successfully</response>
+            <response code="401">User is unauthorized to perform this action</response>
+            <response code="404">Room with specified id was not found</response>
+        </member>
+        <member name="M:Hotelio.Controllers.RoomController.UpdateRoom(System.Guid,Hotelio.Data.Room)">
+            <summary>
+            Updates a specific room's properties
+            </summary>
+            <returns>Success or error message</returns>
+            <response code="200">room was updated successfully</response>
+            <response code="401">User is unauthorized to perform this action</response>
+            <response code="404">room with specified id was not found</response>
+        </member>
+        <member name="M:Hotelio.Controllers.UserController.Get">
+            <summary>
+            Gets all users
+            </summary>
+            <returns>List of all users</returns>
+            <response code="200">List of all users</response>
+            <response code="401">User is unauthorized to perform this action</response>
+        </member>
+        <member name="M:Hotelio.Controllers.UserController.Get(System.Int32)">
+            <summary>
+            Gets a specific user's information
+            </summary>
+            <param name="id">User's id</param>
+            <returns>A specific user's information</returns>
+            <response code="200">Specific's user's info</response>
+            <response code="401">User is unauthorized to perform this action</response>
+        </member>
+    </members>
+</doc>
